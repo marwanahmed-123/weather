@@ -1,0 +1,30 @@
+@media screen and (max-width: 991px) {
+  .navbar .navbar-nav {
+    border-radius: 10px;
+    padding: 0;
+    margin: 0;
+    background-color: #262936;
+  }
+  .navbar .nav-item:hover {
+    border: none;
+    background-color: #009bd87a;
+  }
+  .navbar .nav-item:not(:last-child) {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.24);
+  }
+  .navbar .nav-link:hover {
+    border: none;
+    border-radius: 0;
+    color: white;
+  }
+  .navbar .nav-link {
+    border: none;
+  }
+  .navbar .nav-link.active {
+    border: none;
+    border-radius: 0;
+  }
+  footer .socials {
+    padding-top: 50px;
+  }
+}
