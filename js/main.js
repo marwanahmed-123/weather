@@ -27,13 +27,6 @@ let months = [
   "November",
   "December",
 ];
-cityInput.addEventListener("input", async function () {
-  const autoCompleteData = await autoCompleteResult(cityInput.value);
-  if (autoCompleteData != false) {
-    state = autoCompleteData;
-    setLocation(autoCompleteData);
-  }
-});
 let activeLink = 0;
 for (let i = 0; i < navbarLink.length; i++) {
   navbarLink[i].addEventListener("click", function () {
@@ -54,6 +47,13 @@ if ("geolocation" in navigator) {
     }
   );
 }
+cityInput.addEventListener("input", async function () {
+  const autoCompleteData = await autoCompleteResult(cityInput.value);
+  if (autoCompleteData != false) {
+    state = autoCompleteData[2];
+    setLocation(autoCompleteData[0], autoCompleteData[1]);
+  }
+});
 async function setLocation(latitude, longitude) {
   try {
     let location = await fetch(
@@ -72,13 +72,17 @@ async function autoCompleteResult(word) {
       `https://api.weatherapi.com/v1/search.json?key=ed9afd004def4744bab73043240412&q=${word}`
     );
     searchResult = await searchResult.json();
-    return searchResult[0].region;
+    searchResult = [
+      searchResult[0].lat,
+      searchResult[0].lon,
+      searchResult[0].region,
+    ];
+    return searchResult;
   } catch (error) {
     console.log("error occurred finding city", error);
     return false;
   }
 }
-autoCompleteResult("cai");
 async function getWeather(location) {
   try {
     let weatherJSON = await fetch(
