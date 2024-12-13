@@ -27,4 +27,12 @@
   footer .socials {
     padding-top: 50px;
   }
+  .home .weather-info .days {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .navbar .nav-link {
+    width: 100%;
+    margin: 0;
+  }
 }
