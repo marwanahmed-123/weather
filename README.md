@@ -1,1 +1,1 @@
-# weather
+A user-friendly frontend weather application that provides a detailed forecast for three consecutive days. Displays comprehensive weather conditions, including temperature, humidity, and other relevant metrics. Implemented using HTML,CSS,BOOTSTRAP,pure JAVASCRIPT , API integration.
